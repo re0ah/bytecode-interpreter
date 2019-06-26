@@ -1,0 +1,31 @@
+#pragma once
+#include <stdint.h>
+void _mov (uint16_t* const val0, const uint16_t val1);
+void _add (uint16_t* const val0, const uint16_t val1);
+void _sub (uint16_t* const val0, const uint16_t val1);
+void _mul (uint16_t* const val0, const uint16_t val1);
+void _div (uint16_t* const val0, const uint16_t val1);
+void _mod (uint16_t* const val0, const uint16_t val1);
+void _sal (uint16_t* const val0, const uint16_t val1);
+void _sar (uint16_t* const val0, const uint16_t val1);
+void _and (uint16_t* const val0, const uint16_t val1);
+void _or  (uint16_t* const val0, const uint16_t val1);
+void _band(uint16_t* const val0, const uint16_t val1);
+void _bor (uint16_t* const val0, const uint16_t val1);
+void _xor (uint16_t* const val0, const uint16_t val1);
+void _cmp (uint16_t* const val0, const uint16_t val1);
+void _bnot(uint16_t* const val0);
+void _jmp(const uint16_t val);
+void _jz  (const uint16_t val);
+void _jnz (const uint16_t val);
+void _js  (const uint16_t val);
+void _jns (const uint16_t val);
+void _jl  (const uint16_t val);
+void _jnl (const uint16_t val);
+void _push(const uint16_t val);
+void _pop ();
+void _not ();
+void _int (uint16_t val);
+void _idt (const uint8_t num, const uint16_t label);
+void _call(const uint16_t label);
+void _ret ();
