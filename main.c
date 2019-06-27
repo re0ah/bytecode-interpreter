@@ -1,5 +1,5 @@
 #include "cpu.h"
-uint16_t reg[14];
+uint16_t reg[13];
 #define r0 reg[0]
 #define r1 reg[1]
 #define r2 reg[2]
@@ -17,9 +17,8 @@ uint16_t reg[14];
 */
 #define ip reg[9] /*instruction pointer, current memory location*/
 #define sp reg[10] /*stack pointer, grow down*/
-#define pr reg[11] /*pop register, here return value in pop*/
-#define tmp0 reg[12] /*temp register, used in assembler.*/
-#define tmp1 reg[13] /*temp register, used in assembler. */
+#define tmp0 reg[11] /*temp register, used in assembler.*/
+#define tmp1 reg[12] /*temp register, used in assembler. */
 uint8_t ram[1 << 16];
 #define IDT_SIZE 64 /*interrupt descriptor table located in first 64 bytes of RAM*/
 int main()

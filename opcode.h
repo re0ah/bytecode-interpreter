@@ -44,47 +44,47 @@
 #define OPCD_BNOT 0x0e
     #define SIZE_BNOT 0x05
 
-#define OPCD_IDT  0x0f
-    #define SIZE_IDT  0x05
-
-#define OPCD_JMP  0x10
+#define OPCD_JMP  0x0f
     #define SIZE_JMP  0x03
 
-#define OPCD_JZ   0x11
+#define OPCD_JZ   0x10
     #define SIZE_JZ   0x03
 
-#define OPCD_JNZ  0x12
+#define OPCD_JNZ  0x11
     #define SIZE_JNZ  0x03
 
-#define OPCD_JS   0x13
+#define OPCD_JS   0x12
     #define SIZE_JS   0x03
 
-#define OPCD_JNS  0x14
+#define OPCD_JNS  0x13
     #define SIZE_JNS  0x03
 
-#define OPCD_JL   0x15
+#define OPCD_JL   0x14
     #define SIZE_JL   0x03
 
-#define OPCD_JNL  0x16
+#define OPCD_JNL  0x15
     #define SIZE_JNL  0x03
 
-#define OPCD_CALL 0x17
+#define OPCD_CALL 0x16
     #define SIZE_CALL 0x03
 
-#define OPCD_PUSH 0x18
+#define OPCD_PUSH 0x17
     #define SIZE_PUSH 0x03
 
-#define OPCD_INT  0x19
+#define OPCD_INT  0x18
     #define SIZE_INT  0x03
 
-#define OPCD_POP  0x1a
-    #define SIZE_POP  0x01
+#define OPCD_POP  0x19
+    #define SIZE_POP  0x03
 
-#define OPCD_NOT  0x1b
+#define OPCD_NOT  0x1a
     #define SIZE_NOT  0x01
 
-#define OPCD_RET  0x1c
+#define OPCD_RET  0x1b
     #define SIZE_RET  0x01
+
+#define OPCD_ABORT 0x1c
+    #define SIZE_ABORT 0x01
 /*------------------*/
 /*it's just differences in arguments who being sent*/
 #define SENDER_RECEIVER_RR   0x00   /*val reg = val reg*/

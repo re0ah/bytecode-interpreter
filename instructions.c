@@ -10,21 +10,6 @@ extern uint16_t reg[14];
 #define tmp0 reg[12]
 #define tmp1 reg[13]
 extern uint8_t ram[1 << 16];
-#define IDT_SIZE 64
-struct call_stack
-{
-    uint16_t stack[32]; /*keep address where was made call*/
-    uint8_t  cur_pos;
-} cs = 
-{
-    {
-        0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0
-    },
-    0
-};
 #define check_signed(val)\
     if((*val >> 15) == 1)\
         fl |= (1 << 2);\
@@ -147,29 +132,25 @@ void _push(const uint16_t val)
     ((uint16_t*)ram)[sp / 2] = val;
     sp -= 2;
 };
-void _pop()
+void _pop(uint16_t* const val)
 {
     sp += 2;
-    pr = ((uint16_t*)ram)[sp / 2];
+    *val = ((uint16_t*)ram)[sp / 2];
 };
 void _call(const uint16_t label)
 {
-    cs.stack[cs.cur_pos++] = ip;
-    ip = label + IDT_SIZE;
+    _push(ip);
+    ip = label;
 };
 void _ret()
 {
-    if(cs.cur_pos == 0)
-    {
-        exit(0);
-    }
-    ip = cs.stack[--cs.cur_pos];
+    _pop(&ip);
 };
 void _int(const uint16_t val)
 {
     _call(ram[val]);
 };
-void _idt(const uint8_t num, const uint16_t label)
+void _abort()
 {
-    ram[num] = label;
+    exit(0);
 };
